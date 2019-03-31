@@ -88,7 +88,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bTM-xM-PXD">
-                                <rect key="frame" x="0.0" y="72" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="543"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WpO-w3-SEO">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
@@ -151,7 +151,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnO-1l-y5B">
-                                        <rect key="frame" x="0.0" y="114" width="375" height="489"/>
+                                        <rect key="frame" x="0.0" y="114" width="375" height="20.5"/>
                                         <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -160,24 +160,50 @@
                                             <outletCollection property="gestureRecognizers" destination="59z-gN-QCd" appends="YES" id="icc-Ip-07g"/>
                                         </connections>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="cBp-hS-2kS">
+                                        <rect key="frame" x="0.0" y="142.5" width="375" height="400.5"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tVA-qx-IoL" firstAttribute="leading" secondItem="Ezo-Dh-lrR" secondAttribute="leading" id="0wX-ly-XnN"/>
                                     <constraint firstItem="Kay-mO-Iyz" firstAttribute="leading" secondItem="tVA-qx-IoL" secondAttribute="leading" id="zZa-iH-cB1"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6Z-dK-vJf">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1mP-Is-pNE"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="vLA-vm-akw">
+                                        <connections>
+                                            <action selector="takePicture:" destination="Zr6-SL-cNH" id="X0L-rs-Z1h"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="trash" id="uPb-Bf-enN">
+                                        <connections>
+                                            <action selector="deleteButton:" destination="Zr6-SL-cNH" id="hNU-Mr-ASF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="J6Z-dK-vJf" firstAttribute="leading" secondItem="vG8-8t-mAx" secondAttribute="leading" id="0XN-xg-hIx"/>
                             <constraint firstItem="bTM-xM-PXD" firstAttribute="top" secondItem="vG8-8t-mAx" secondAttribute="top" constant="8" id="FQ9-Fj-ceL"/>
+                            <constraint firstItem="J6Z-dK-vJf" firstAttribute="top" secondItem="bTM-xM-PXD" secondAttribute="bottom" constant="8" id="LcE-Zo-0ep"/>
                             <constraint firstItem="vG8-8t-mAx" firstAttribute="trailing" secondItem="bTM-xM-PXD" secondAttribute="trailing" id="M1y-Lc-pta"/>
-                            <constraint firstItem="bTM-xM-PXD" firstAttribute="bottom" secondItem="vG8-8t-mAx" secondAttribute="bottom" constant="8" id="QFv-Ib-TNj"/>
+                            <constraint firstItem="J6Z-dK-vJf" firstAttribute="trailing" secondItem="vG8-8t-mAx" secondAttribute="trailing" id="a3E-8p-Fkc"/>
+                            <constraint firstItem="J6Z-dK-vJf" firstAttribute="bottom" secondItem="vG8-8t-mAx" secondAttribute="bottom" id="buc-Ax-n5K"/>
                             <constraint firstItem="bTM-xM-PXD" firstAttribute="leading" secondItem="vG8-8t-mAx" secondAttribute="leading" id="ryk-m8-mte"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vG8-8t-mAx"/>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="lnO-1l-y5B" id="1gC-yi-Bdt"/>
+                        <outlet property="deleteButton" destination="uPb-Bf-enN" id="ebv-QQ-rtp"/>
+                        <outlet property="imageView" destination="cBp-hS-2kS" id="R1w-SO-PWZ"/>
                         <outlet property="nameField" destination="Kay-mO-Iyz" id="g4Y-Cg-1Li"/>
                         <outlet property="serialField" destination="tVA-qx-IoL" id="evk-SD-mXT"/>
                         <outlet property="valueField" destination="Ezo-Dh-lrR" id="4EQ-wV-YcJ"/>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B8046388224695CA00FCB2B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8046387224695CA00FCB2B0 /* DetailViewController.swift */; };
+		B83A67A1225120AA009E8123 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83A67A0225120AA009E8123 /* ImageStore.swift */; };
 		B8BD14A9221DA8C60015187A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD14A8221DA8C60015187A /* AppDelegate.swift */; };
 		B8BD14AE221DA8C60015187A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8BD14AC221DA8C60015187A /* Main.storyboard */; };
 		B8BD14B0221DA8C70015187A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BD14AF221DA8C70015187A /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		B8046387224695CA00FCB2B0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B83A67A0225120AA009E8123 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		B8BD14A5221DA8C60015187A /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BD14A8221DA8C60015187A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8BD14AD221DA8C60015187A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				B8046387224695CA00FCB2B0 /* DetailViewController.swift */,
+				B83A67A0225120AA009E8123 /* ImageStore.swift */,
 				B8BD14D6221DAB070015187A /* ItemsViewController.swift */,
 				B8BD14A8221DA8C60015187A /* AppDelegate.swift */,
 				B8BD14AC221DA8C60015187A /* Main.storyboard */,
@@ -273,6 +276,7 @@
 				B8BD14DB221DB2490015187A /* ItemStore.swift in Sources */,
 				B8046388224695CA00FCB2B0 /* DetailViewController.swift in Sources */,
 				B8BD14A9221DA8C60015187A /* AppDelegate.swift in Sources */,
+				B83A67A1225120AA009E8123 /* ImageStore.swift in Sources */,
 				B8BD14DD221F258A0015187A /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

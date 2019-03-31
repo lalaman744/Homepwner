@@ -1,12 +1,15 @@
 import UIKit
 
-class DetailViewController: UIViewController, UITextFieldDelegate {
+class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate  {
     
     
+    @IBOutlet var deleteButton: UIBarButtonItem!
+    @IBOutlet var imageView: UIImageView!
     @IBOutlet var serialField: UITextField!
     @IBOutlet var nameField: UITextField!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var valueField: UITextField!
+    var imageStore: ImageStore!
     
     var item: Item! {
         didSet {
@@ -36,6 +39,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         serialField.text = item.serialNumber
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        
+        // Get the item key
+        let key = item.itemKey
+        // If there is an associated image with the item
+        // display it on the image view
+        let imageToDisplay = imageStore.image(forKey: key)
+        imageView.image = imageToDisplay
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,4 +73,51 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+    
+    
+    @IBAction func takePicture(_ sender: UIBarButtonItem) {
+        
+        let imagePicker = UIImagePickerController()
+        // If the device has a camera, take a picture; otherwise,
+        // just pick from photo library
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+        } else {
+            imagePicker.sourceType = .photoLibrary
+        }
+    
+    
+        imagePicker.delegate = self
+    
+        // Place image picker on the screen
+        present(imagePicker, animated: true, completion: nil)
+        
+    }
+    
+    
+    /*Had to get updated below method from https://stackoverflow.com/questions/51342028/cannot-subscript-a-value-of-type-string-any-with-an-index-of-type-uiimage */
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // Get picked image from info dictionary
+        guard let image = info[.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
+        
+        // Store the image in the ImageStore for the item's key
+        imageStore.setImage(image, forKey: item.itemKey)
+        
+        // Put that image on the screen in the image view
+        imageView.image = image
+        
+        // Take image picker off the screen -
+        // you must call this dismiss method
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func deleteButton(_ sender: UIBarButtonItem) {
+        
+        
+    }
+    
+    
 }
