@@ -116,7 +116,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     @IBAction func deleteButton(_ sender: UIBarButtonItem) {
         
-        
+        imageStore.deleteImage(forKey: item.itemKey)
+
     }
     
     
